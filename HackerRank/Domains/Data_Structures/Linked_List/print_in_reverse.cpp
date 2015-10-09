@@ -1,5 +1,5 @@
 /*
- * Problem: Delete a Node
+ * Problem: Print in Reverse
  * Author: Anirudha Bose <ani07nov@gmail.com>
 
    Print elements of a linked list in reverse order as standard output
