@@ -11,7 +11,7 @@
          int data;
          struct Node *next;
      }
-*/
+ */
 
 Node* InsertNth(Node *head, int data, int position)
 {
