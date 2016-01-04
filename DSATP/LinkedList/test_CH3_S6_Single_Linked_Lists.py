@@ -2,6 +2,7 @@ import unittest
 
 from LinkedList.CH3_S6_Single_Linked_Lists import LinkedList
 from LinkedList.CH3_S6_Single_Linked_Lists import Node
+from LinkedList.CH3_S6_Single_Linked_Lists import ElementNotFoundException
 
 
 class TestSingleLinkedList(unittest.TestCase):
@@ -42,3 +43,49 @@ class TestSingleLinkedList(unittest.TestCase):
         ll.insert_at_pos('ani', 1)
         self.assertEqual(ll.head.get_next().get_next().get_data(), 'ani')
         self.assertEqual(ll.length, 4)
+
+        # Delete from beginning
+        ll.delete_from_beginning()
+        self.assertEqual(ll.head.get_data(), 'foo')
+        self.assertEqual(ll.length, 3)
+
+        # Delete last node
+        ll.delete_last_node()
+        self.assertEqual(ll.head.get_next().get_data(), 'ani')
+        self.assertEqual(ll.head.get_next().get_next(), None)
+        self.assertEqual(ll.length, 2)
+
+        # Delete node
+        ll.insert_at_pos('anirudha', 2)
+        ll.insert_at_pos('bose', 3)
+        self.assertEqual(ll.length, 4)
+        node = ll.head.get_next().get_next()
+        ll.delete_node(node)
+        self.assertEqual(ll.length, 3)
+
+        # Delete a non-existent node
+        node = Node()
+        node.set_data('pirated')
+        with self.assertRaises(ElementNotFoundException):
+            ll.delete_node(node)
+        self.assertEqual(ll.length, 3)
+
+        # Delete value
+        ll.insert_at_pos('onyb', 2)
+        self.assertEqual(ll.head.get_next().get_next().get_next().get_data(), 'onyb')
+        self.assertEqual(ll.length, 4)
+        ll.delete_value('onyb')
+        self.assertEqual(ll.head.get_next().get_data(), 'ani')
+        self.assertEqual(ll.length, 3)
+
+        # Delete position
+        ll.insert_at_pos('onyb', 2)
+        self.assertEqual(ll.head.get_next().get_next().get_next().get_data(), 'onyb')
+        self.assertEqual(ll.length, 4)
+        ll.delete_pos(2)
+        self.assertEqual(ll.head.get_next().get_data(), 'ani')
+        self.assertEqual(ll.length, 3)
+
+        # Clear linked list
+        ll.clear()
+        self.assertEqual(ll.length, 0)

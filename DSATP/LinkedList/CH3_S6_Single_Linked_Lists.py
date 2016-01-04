@@ -1,6 +1,3 @@
-import unittest
-
-
 class Node:
     """
     Node of a single linked list
@@ -148,6 +145,103 @@ class LinkedList:
             node.set_next(current.get_next())
             current.set_next(node)
 
+    def delete_from_beginning(self):
+        if self.length == 0:
+            raise EmptyListException
+
+        self.head = self.head.get_next()
+
+    def delete_last_node(self):
+        if self.length == 0:
+            raise EmptyListException
+
+        current = self.head
+        previous = None
+        while current.has_next():
+            previous = current
+            current = current.get_next()
+
+        previous.set_next(None)
+
+    def delete_node(self, node):
+        if self.length == 0:
+            raise EmptyListException
+
+        current = self.head
+        previous = self.head
+        found = False
+
+        while not found:
+            if current == node:
+                found = True
+
+            elif current is None:
+                # Reached end of linked list
+                raise ElementNotFoundException
+            else:
+                previous = current
+                current = current.get_next()
+
+        if previous is self.head:
+            # The item to be deleted is the head
+            self.head = current.get_next()
+        else:
+            previous.set_next(current.get_next())
+
+    def delete_value(self, value):
+        if self.length == 0:
+            raise EmptyListException
+
+        current = self.head
+        previous = self.head
+        found = False
+
+        while not found:
+            if current.get_data() == value:
+                found = True
+
+            elif current is None:
+                # Reached end of linked list
+                raise ElementNotFoundException
+            else:
+                previous = current
+                current = current.get_next()
+
+        if previous is self.head:
+            # The item to be deleted is the head
+            self.head = current.get_next()
+        else:
+            previous.set_next(current.get_next())
+
+    def delete_pos(self, pos):
+        if self.length == 0:
+            raise EmptyListException
+
+        count = 0
+        current = self.head
+        previous = self.head
+
+        if pos > self.length or pos < 0:
+            raise InvalidPositionException
+
+        while count < pos:
+            count += 1
+            previous = current
+            current = current.get_next()
+
+        previous.set_next(current.get_next())
+
+    def clear(self):
+        self.head = None
+
 
 class InvalidPositionException(Exception):
+    pass
+
+
+class EmptyListException(Exception):
+    pass
+
+
+class ElementNotFoundException(Exception):
     pass
