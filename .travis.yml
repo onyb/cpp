@@ -1,0 +1,18 @@
+os:
+  - linux
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - python
+    - python-software-properties
+    - python-pip
+
+before_install:
+  - sudo pip install --upgrade pip
+  
+script:
+  - cd DSATP
+  - python3 -m unittest
