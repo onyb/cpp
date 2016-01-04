@@ -1,3 +1,5 @@
+sudo: false
+
 os:
   - linux
 
@@ -6,13 +8,10 @@ addons:
     sources:
     - ubuntu-toolchain-r-test
     packages:
-    - python
-    - python-software-properties
-    - python-pip
-
-before_install:
-  - sudo pip install --upgrade pip
+    - python3
   
+before_script:
+  - python3 --version
+
 script:
-  - cd DSATP
-  - python3 -m unittest
+  - cd DSATP && python3 -m unittest
