@@ -42,7 +42,3 @@ class TestSingleLinkedList(unittest.TestCase):
         ll.insert_at_pos('ani', 1)
         self.assertEqual(ll.head.get_next().get_next().get_data(), 'ani')
         self.assertEqual(ll.length, 4)
-
-
-if __name__ == '__main__':
-    unittest.main()
