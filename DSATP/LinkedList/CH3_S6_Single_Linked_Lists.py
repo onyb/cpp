@@ -146,12 +146,20 @@ class LinkedList:
             current.set_next(node)
 
     def delete_from_beginning(self):
+        """
+        Method for deleting a node from the beginning of the linked list
+        :return: None
+        """
         if self.length == 0:
             raise EmptyListException
 
         self.head = self.head.get_next()
 
     def delete_last_node(self):
+        """
+        Method for deleting a node from the end of the linked list
+        :return: None
+        """
         if self.length == 0:
             raise EmptyListException
 
@@ -189,6 +197,11 @@ class LinkedList:
             previous.set_next(current.get_next())
 
     def delete_value(self, value):
+        """
+        Method to delete a node from a linked list with a particular value
+        :param value: data value of the node to be matched with
+        :return: None
+        """
         if self.length == 0:
             raise EmptyListException
 
@@ -214,6 +227,11 @@ class LinkedList:
             previous.set_next(current.get_next())
 
     def delete_pos(self, pos):
+        """
+        Method to delete a node from a linked list at a given position
+        :param pos: Index of node to be deleted
+        :return: None
+        """
         if self.length == 0:
             raise EmptyListException
 
@@ -232,6 +250,10 @@ class LinkedList:
         previous.set_next(current.get_next())
 
     def clear(self):
+        """
+        Remove linked list from memory
+        :return: None
+        """
         self.head = None
 
 
