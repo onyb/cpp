@@ -42,6 +42,7 @@ class Node:
         """
         return self.next
 
+    @property
     def has_next(self):
         """
         Check if node points to another node
@@ -64,6 +65,7 @@ class Node:
         """
         return self.prev
 
+    @property
     def has_prev(self):
         """
         Check if node is pointed to by another node
@@ -103,7 +105,7 @@ class LinkedList:
 
         current = self.head
         c = 1
-        while current.has_next():
+        while current.has_next:
             c += 1
             current = current.get_next()
         return c
@@ -138,7 +140,7 @@ class LinkedList:
             self.set_head(node)
         else:
             current = self.head
-            while current.has_next():
+            while current.has_next:
                 current = current.get_next()
 
             node.set_prev(current)

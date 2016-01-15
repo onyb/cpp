@@ -16,8 +16,8 @@ class TestSingleLinkedList(unittest.TestCase):
         node_a.set_next(node_b)
         self.assertEqual(node_a.get_next(), node_b)
 
-        self.assertEqual(node_a.has_next(), True)
-        self.assertEqual(node_b.has_next(), False)
+        self.assertEqual(node_a.has_next, True)
+        self.assertEqual(node_b.has_next, False)
 
     def test_linked_list(self):
         ll = LinkedList()

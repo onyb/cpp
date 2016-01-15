@@ -17,10 +17,10 @@ class TestDoubleLinkedList(unittest.TestCase):
         self.assertEqual(node_a.get_next(), node_b)
         self.assertEqual(node_b.get_prev(), node_a)
 
-        self.assertEqual(node_a.has_next(), True)
-        self.assertEqual(node_b.has_next(), False)
-        self.assertEqual(node_a.has_prev(), False)
-        self.assertEqual(node_b.has_prev(), True)
+        self.assertEqual(node_a.has_next, True)
+        self.assertEqual(node_b.has_next, False)
+        self.assertEqual(node_a.has_prev, False)
+        self.assertEqual(node_b.has_prev, True)
 
     def test_linked_list(self):
         ll = LinkedList()
